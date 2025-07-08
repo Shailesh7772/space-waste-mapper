@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@craco/craco": "^5.9.0",
+    "chart.js": "^4.5.0",
+    "jspdf": "^3.0.1",
+    "jspdf-autotable": "^5.0.2",
+    "leaflet": "^1.9.4",
+    "react-chartjs-2": "^5.3.0",
+    "react-csv": "^2.2.2",
+    "react-leaflet": "^5.0.0",
+    "satellite.js": "^6.0.0",
+    "tle.js": "^5.0.1"
+  }
+}
