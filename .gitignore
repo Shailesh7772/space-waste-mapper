@@ -1,0 +1,28 @@
+# Node
+node_modules/
+
+# Python venv
+space-waste-mapper/backend/venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build
+/build/
+/dist/
+
+# Logs
+*.log
+
+# Environment
+.env*
+
+# Coverage
+/coverage/
+
+# OS
+.DS_Store
+Thumbs.db 
