@@ -1,0 +1,216 @@
+/* Reset & Base Styling */
+@import "leaflet/dist/leaflet.css";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b); /* dark gradient */
+  min-height: 100vh;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+.App {
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #60a5fa;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+h1::before {
+  content: "🛰️ ";
+}
+
+/* Add Satellite Form */
+.sat-form {
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.sat-form input,
+.sat-form select {
+  padding: 12px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.sat-form button {
+  grid-column: span 2;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sat-form button:hover {
+  background-color: #2563eb;
+}
+
+/* Export Buttons */
+.export-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #0ea5e9;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #0284c7;
+}
+
+/* Table Styling */
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tracker-table th {
+  background-color: #0f172a;
+  color: #facc15;
+  padding: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tracker-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #334155;
+  color: #f1f5f9;
+}
+
+.tracker-table tbody tr:hover {
+  background-color: #334155;
+}
+
+/* Status Badges */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge.safe {
+  background-color: #166534;
+  color: #bbf7d0;
+}
+
+.badge.danger {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+.status-badge {
+  background-color: #0369a1;
+  color: #e0f2fe;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: bold;
+}
+
+/* Buttons in Table */
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border: none;
+}
+
+.delete-btn {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+.delete-btn:hover {
+  background-color: #991b1b;
+}
+
+.timeline-btn {
+  background-color: #6b21a8;
+  color: #f3e8ff;
+}
+
+.timeline-btn:hover {
+  background-color: #7e22ce;
+}
+
+.pass-predictor {
+  margin-top: 30px;
+  padding: 20px;
+  background: #1e2a38;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.pass-predictor input,
+.pass-predictor select,
+.pass-predictor button {
+  margin: 5px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.anomaly-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  margin-top: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.anomaly-badge.safe {
+  background-color: #27ae60;
+  color: white;
+}
+.anomaly-badge.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
