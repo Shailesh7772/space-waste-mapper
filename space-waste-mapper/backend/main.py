@@ -10,6 +10,7 @@ from math import degrees, atan2, sqrt
 from sgp4.api import Satrec, jday
 import numpy as np
 import joblib
+import os
 
 # -----------------------------
 # Pydantic Model
@@ -34,7 +35,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = MongoClient("mongodb://localhost:27017/")
+# Database connection with environment variable support
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017/")
+client = MongoClient(MONGODB_URI)
 db = client["space_waste_db"]
 satellite_collection = db["satellites"]
 
@@ -49,7 +52,7 @@ except Exception as e:
 
 @app.get("/")
 def root():
-    return {"message": "MongoDB connected!"}
+    return {"message": "Space Waste Mapper API is running!", "status": "connected"}
 
 # -----------------------------
 # Utilities
