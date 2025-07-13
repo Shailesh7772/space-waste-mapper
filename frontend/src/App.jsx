@@ -9,6 +9,8 @@ import autoTable from 'jspdf-autotable';
 import RiskTimelineModal from './components/RiskTimelineModal';
 import SatelliteMap from './components/SatelliteMap';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   const [satellites, setSatellites] = useState([]);
   const [liveData, setLiveData] = useState({});
@@ -40,7 +42,7 @@ function App() {
 
   const fetchSatellites = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/satellite/all');
+      const res = await axios.get(`${API_BASE_URL}/api/satellite/all`);
       setSatellites(res.data);
     } catch (err) {
       console.error('Fetch satellite error:', err);
@@ -49,7 +51,7 @@ function App() {
 
   const fetchLivePosition = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/satellite/position/${id}`);
+      const res = await axios.get(`${API_BASE_URL}/api/satellite/position/${id}`);
       setLiveData((prev) => ({ ...prev, [id]: res.data }));
     } catch (err) {
       console.error('Live position fetch error:', err);
@@ -58,7 +60,7 @@ function App() {
 
   const checkAnomaly = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/satellite/anomaly-check/${id}`);
+      const res = await axios.get(`${API_BASE_URL}/api/satellite/anomaly-check/${id}`);
       setAnomalyData((prev) => ({ ...prev, [id]: res.data.anomaly_status }));
     } catch (err) {
       setAnomalyData((prev) => ({ ...prev, [id]: '❌ Error' }));
@@ -72,7 +74,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/satellite/add', formData);
+      await axios.post(`${API_BASE_URL}/api/satellite/add`, formData);
       alert('✅ Satellite added successfully');
       setFormData({ name: '', norad_id: '', tle_line1: '', tle_line2: '', status: 'active' });
       fetchSatellites();
@@ -83,7 +85,7 @@ function App() {
 
   const handleDelete = async (id) => {
     if (window.confirm('❗ Are you sure you want to delete this satellite?')) {
-      await axios.delete(`http://localhost:8000/api/satellite/delete/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/satellite/delete/${id}`);
       fetchSatellites();
     }
   };
